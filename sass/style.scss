@@ -3,19 +3,18 @@
 
 body {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   font-family: "Kumbh Sans", sans-serif;
   font-size: 1rem;
-  padding: 1em;
-  // background: red;
+  padding: 1em 2em;
+
   @media (max-width: 550px) {
-    padding: 0;
+    padding: 1em 0;
   }
 }
 
 main {
-  // background: blue;
-  padding: 1em;
+  padding: 1em 2em;
 
   @media (max-width: 760px) {
     padding: 0;
@@ -25,42 +24,32 @@ main {
 header {
   display: flex;
   justify-content: space-between;
-  // background: yellow;
-  padding: 0 0 0.5em 0;
+  padding-bottom: .5em;
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
   border-bottom: 2px solid hsl(220, 14%, 97%);
-
-  @media (max-width: 940px) {
-    width: 95%;
-  }
+  position: relative;
 
   @media (max-width: 760px) {
     border: none;
-    padding: 0;
-    width: 100%;
+    padding: 0 1em;
     justify-content: flex-end;
   }
 }
 
 .navbar {
-  // background: green;
+  padding: .2em;
   display: flex;
-  margin-top: 0.2em;
 
   @media (max-width: 760px) {
     background: $White;
     flex-direction: column;
     margin: 0;
     position: absolute;
-    top: 5px;
+    top: 0;
     left: 0;
-    padding: 1em;
+    padding: .3em 0;
     z-index: 9;
-  }
-
-  @media (max-width: 350px) {
-    padding: 0;
   }
 
   .nav-imgs {
@@ -68,10 +57,6 @@ header {
 
     @media (max-width: 760px) {
       margin-left: 1.2em;
-    }
-
-    @media (max-width: 350px) {
-      margin: 1em;
     }
 
     .menu {
@@ -96,14 +81,14 @@ header {
   .navlist {
     list-style-type: none;
     display: flex;
-    margin-left: 1em;
+    margin-left: 2.5em;
 
     @media (max-width: 760px) {
       display: none;
     }
 
     .navitem {
-      margin: 1.15em 0.7em;
+      margin: 1.15em 1em;
       cursor: pointer;
       font-size: 0.75rem;
       position: relative;
@@ -150,10 +135,10 @@ header {
 }
 
 .mobile-navlist {
+  background: $White;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  // background: gold;
   list-style-type: none;
   margin-top: 1em;
 
@@ -166,61 +151,54 @@ header {
 }
 
 .user {
-  // background: pink;
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 0.5em;
+  position: relative;
 
-  @media (max-width: 550px) {
-    margin: 1em 0 0 0;
-  }
+  &-profile{
+    display: flex;
 
-  &-cart {
-    position: relative;
-    cursor: pointer;
-    margin-right: 0.5em;
-
-    .cart-svg {
-      margin: 1em;
-
-      &:hover {
-        svg {
-          path {
-            fill: $Black;
+    &-cart {
+      position: relative;
+      cursor: pointer;
+      margin-right: 0.5em;
+  
+      .cart-svg {
+        margin: 1em;
+  
+        &:hover {
+          svg {
+            path {
+              fill: $Black;
+            }
           }
         }
       }
+  
+      &-number {
+        background: $Orange;
+        padding: 0.2em 0.7em;
+        border-radius: 10px;
+        font-size: 0.7rem;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        color: $White;
+      }
     }
-
-    &-number {
-      background: $Orange;
-      padding: 0.2em 0.7em;
-      border-radius: 10px;
-      font-size: 0.7rem;
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      color: $White;
-    }
-  }
-
-  &-img {
-    width: 45px;
-    height: 45px;
-    cursor: pointer;
-
-    @media (max-width: 500px) {
-      width: 40px;
-      height: 40px;
-      margin-top: 0.2em;
-    }
-
-    &:hover {
-      border-radius: 50%;
-      border: 2px solid $Orange;
+  
+    &-img {
+      width: 45px;
+      height: 45px;
+      cursor: pointer;
+  
+      &:hover {
+        border-radius: 50%;
+        border: 2px solid $Orange;
+      }
     }
   }
 }
+
 
 .card {
   background: $White;
@@ -228,25 +206,23 @@ header {
   position: absolute;
   border-radius: 10px;
   box-shadow: 1px 10px 20px 3px $Grayish-blue;
-  top: 110px;
-  right: 50px;
-  min-width: 280px;
+  top: 80px;
+  right: -20px;
+  width: 300px;
+  height: 200px;
   z-index: 9;
 
-  @media (max-width: 760px) {
-    right: 20px;
-  }
-
-  @media (max-width: 500px) {
+  @media (max-width: 550px) {
+    width: 280px;
     right: 50%;
     transform: translate(50%, 0);
+    height: 220px;
   }
 
   h1 {
-    // background: red;
     font-size: 1rem;
     border-bottom: 1px solid hsl(220, 14%, 85%);
-    padding: 1em;
+    padding: 1.5em;
   }
 
   .cartempty{
@@ -254,6 +230,8 @@ header {
   }
 
   .cartfilled{
+    margin-top: 1em;
+
     .card-info {
       margin: 1em;
       display: flex;
@@ -288,7 +266,8 @@ header {
     }
   
     button {
-      margin: 1em;
+      display: block;
+      margin: 1em auto;
       width: 90%;
       background: $Orange;
       color: $White;
@@ -301,33 +280,34 @@ header {
 }
 
 .product{
-  margin: 3em auto 0 auto;
-  width: 90%;
+  margin-top: 4em;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
-  padding: 2em; 
+  padding: 1em; 
 
-  @media (max-width: 940px) {
-    padding: 1em 0;
-    justify-content: space-around;
-    width: 95%;
+  @media (max-width: 1000px) {
+    justify-content: space-between;
+    padding: 0;
   }
 
   @media (max-width: 760px) {
-    width: 100%;
-    margin: 0 auto;
     flex-direction: column;
+    justify-content: unset;
     align-items: center;
+    margin: 2em 0;
   }
 
+  @media (max-width: 550px) {
+    margin: .5em 0;
+    align-items: unset;
+  }
+
+
   &-images{
-    width: 40%;
+    width: 400px;
 
     @media (max-width: 760px) {
-      width: 80%;
-    }
-
-    @media (max-width: 550px) {
       width: 100%;
     }
 
@@ -345,7 +325,7 @@ header {
       position: relative;
       z-index: 1;
 
-      @media (max-width: 550px) {
+      @media (max-width: 760px) {
         border-radius: 0%;
       }
 
@@ -402,111 +382,26 @@ header {
     }
   }
 
-  // .gallery-images{
-  //   width: 35%;
-  //   // background: red;
-  //   display: flex;
-  //   flex-direction: column;
-  //   // justify-self: center;
-  //   // align-self: center;
-  //   position: absolute;
-  //   top: 65%;
-  //   left: 50%;
-  //   transform: translate(-50%, -50%);
-  //   z-index: 9;
-
-  //   .cross{
-  //     align-self: flex-end;
-  //     margin: 0 .3em .5em 0;
-  //     cursor: pointer;
-
-  //     &:hover{
-  //       path{
-  //         fill: $Orange;
-  //       }
-  //     }
-  //   }
-
-  //   .gallery{
-  //     position: relative;
-
-  //     .previous,.next{
-  //       background: $White;
-  //       position: absolute;
-  //       top: 50%;
-  //       transform: translate(0, -50%);
-  //       padding: .25em;
-  //       border-radius: 50%;
-  //       cursor: pointer;
-
-  //       svg{
-  //         margin: .25em;
-  //       }
-
-  //       &:hover{
-  //         svg{
-  //           path{
-  //             stroke: $Orange;
-  //           }
-  //         }
-  //       }
-  //     }
-
-  //     .previous{
-  //       left: -10px;
-  //     }
-
-  //     .next{
-  //       right: -12px;
-  //     }
-
-  //     &-images-img{
-  //       width: 100%;
-  //       max-width: 100%;
-  //       border-radius: 20px;
-  //     }
-  //   }
-
-  //   &-thumbnails{
-  //     display: flex;
-  //     justify-content: space-evenly;
-
-  //     img{
-  //       cursor: pointer;
-  //       border-radius: 10px;
-  //       width: 18%;
-
-  //       &:hover{
-  //         opacity: 0.5;
-  //       }
-  //     }
-  //   }
-  // }
 
   &-info {
-    padding: 1em 2em;
-    // background: greenyellow;
-    width: 50%;
+    padding: 3em 1em;
+    width: 38%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 
-    @media (max-width: 940px) {
-      width: 55%;
+    @media (max-width: 1000px) {
+      width: 50%;
+      padding: 2em 1em;
     }
 
     @media (max-width: 760px) {
-      margin-top: 1em;
-      width: 80%;
-    }
-
-    @media (max-width: 550px) {
-      padding: 1em;
-      width: 95%;
+      margin: 0;
+      padding: 1em 2em;
+      width: 100%;
     }
 
     .company {
-      // margin-top: 6em;
+      margin-top: 1em;
       text-transform: uppercase;
       letter-spacing: 0.2ch;
       font-size: 0.6rem;
@@ -519,8 +414,8 @@ header {
       font-size: 2rem;
       line-height: 1em;
 
-      @media (max-width: 940px) {
-        font-size: 1.8rem;
+      @media (max-width: 550px) {
+        font-size: 1.7rem;
       }
     }
 
@@ -534,7 +429,6 @@ header {
 
     .product-price {
       margin-top: 1em;
-      // background: darkmagenta;
 
       @media (max-width: 550px) {
         margin-top: 1.5em;
@@ -572,9 +466,16 @@ header {
     }
 
     .buttons {
-      // background: green;
       display: flex;
       margin-top: 1.5em;
+
+      @media (max-width: 1000px) {
+        flex-direction: column;
+      }
+
+      @media (max-width: 760px) {
+        flex-direction: row;
+      }
 
       @media (max-width: 550px) {
         margin-top: 1em;
@@ -582,9 +483,9 @@ header {
       }
 
       &-counter {
-        // background: red;
         margin-top: .3em;
         display: flex;
+
 
         @media (max-width: 550px) {
           width: 100%;
@@ -592,13 +493,21 @@ header {
         }
 
         button, .counter-para{
-          // background: red;
           cursor: pointer;
           width: 35px;
           height: 35px;
           background: $Light-grayish-blue;
           border: none;
           border-radius: 3px;
+
+          @media (max-width: 1000px) {
+            width: 33%;
+          }
+
+          @media (max-width: 760px) {
+            width: 35px;
+            height: 35px;
+          }
 
           @media (max-width: 550px) {
             width: 33%;
@@ -613,9 +522,6 @@ header {
 
         .counter-para{
           cursor: default;
-          // display: flex;
-          // justify-content: center;
-          // align-items: center;
         }
 
         .item-count{
@@ -652,6 +558,16 @@ header {
 
         &:hover{
           opacity: 0.7;
+        }
+
+        @media (max-width: 1000px) {
+          width: 100%;
+          margin: 1em 0 0 0;
+        }
+
+        @media (max-width: 760px) {
+          width: 60%;
+          margin: 0 0 0 1em;
         }
 
         @media (max-width: 550px) {
